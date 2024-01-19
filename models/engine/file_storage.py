@@ -28,12 +28,12 @@ class FileStorage:
     def all(self, cls=None):
         """Returns a dictionary of models currently in storage"""
         if cls is not None:
-            if type(cls) == str:
+            if isinstance(cls, str):
                 # cls = eval(cls) security vulnerability
                 cls = globals()[cls]
                 cls_dict = {}
                 for key, value in self.__objects.items():
-                    if type(value) == cls:
+                    if isinstance(value, cls):
                         cls_dict[key] = value
                 return cls_dict
         return self.__objects
