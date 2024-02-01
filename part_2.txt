@@ -16,4 +16,41 @@ so to do that i should use mkdir with the -p option
 /data/web_static/current -> /data/web_static/releases/test/
 
 5. Change the data ownship folder to user and group
-chown -r
+chown -R ubuntu and chgrp -R AND
+
+6. update the Nginx config to serve the content of /data/web_static/current/ to hbnb_static
+
+Inside the file /etc/nginx/sites-avaible/default i should add inside the server block 
+server {
+	#Previous content
+	location /hbnb_static {
+		alias /data/web_static/current/;
+	}
+}
+NB: Before that make sure that /etc/nginx/sites-enabled/default is linked whith /etc/nginx/site-available/default
+==> if [ ! -L /etc/nginx/sites-enabled/default ];==> return true if no symbolik link exist.
+
+
+Task1: Create an archive tgz using fabric
+First let's import local because the command should executed in
+local.
+from fabric.api import local
+The archive will be done using tar -czvf web_static_<year><month><day><hour><minute><second>.tgz /data/web_static
+
+==> web_static_<year><month><day><hour><minute><second>.tgz: will be formed using datetime python module since fabric is a python libary and python file. So let's import datetime from datetim
+and use it to construct the full name of our archive.
+date = datetime.now().strftime("%Y%m%d%H%M%S")
+archive_name = f'web_static_{date}.tgz
+
+==> tar -czvf archive_name /data/web_static
+Finally the archive should be saved in versions directory.
+if not os.path.exists(versions):
+	local("mkdir versions)
+so our fuction do_pack() will be 
+try:
+	if not os.path.exists(versions):
+		local("mkdir versions)
+	date = datetime.now().strftime("%Y%m%d%H%M%S")
+	archive_name = f'web_static_{date}.tgz
+	local ("tar -czvf versions/archive_name web_static"
+
