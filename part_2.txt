@@ -1,1 +1,19 @@
 In this file i will  try to explain how to proceed
+
+Task0: 
+1. I should first install ngnix
+	sudo apt -y update
+	sudo apt install -y nginx
+2. I  have to create this folders if don't exist	:
+	-/data/web_static/releases/
+	-/data/web_static/shared/
+	-/data/web_static/releases/test/
+so to do that i should use mkdir with the -p option
+
+3. I have also to create /data/web_static/releases/test/index.html html file with a  simple content for testing my nginx config
+
+4. I should create a symbolic link between 
+/data/web_static/current -> /data/web_static/releases/test/
+
+5. Change the data ownship folder to user and group
+chown -r
