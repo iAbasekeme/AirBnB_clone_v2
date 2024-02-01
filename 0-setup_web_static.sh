@@ -1,19 +1,10 @@
 #!/usr/bin/env bash
 # A script that deploys to a web server
 
-mkdir -p /data/web_static/shared/
-mkdir -p /data/web_static/releases/test/
+sudo mkdir -p /data/web_static/shared/
+sudo mkdir -p /data/web_static/releases/test/
 
-cat <<EOF > /data/web_static/releases/test/index.html
-"<html>
-    <head>
-        <title>Welcome to Test.com!</title>
-    </head>
-    <body>
-        <h1>Success!  The test.com server block is working!</h1>
-    </body>
-</html>"
-EOF
+echo "This is a test" | sudo tee /data/web_static/releases/test/index.html
 
 # Remove existing symbolic link (if it exists)
 sudo rm -f /data/web_static/current
