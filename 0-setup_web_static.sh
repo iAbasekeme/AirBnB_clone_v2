@@ -7,7 +7,13 @@ sudo mkdir -p /data/web_static/releases/
 sudo mkdir -p /data/web_static/shared/
 sudo mkdir -p /data/web_static/releases/test/
 sudo touch /data/web_static/releases/test/index.html
-echo "This is a test" | sudo tee /data/web_static/releases/test/index.html
+sudo echo "<html>
+  <head>
+  </head>
+  <body>
+    Holberton School
+  </body>
+</html>" | sudo tee /data/web_static/releases/test/index.html
 # Remove existing symbolic link (if it exists)
 sudo rm -f /data/web_static/current
 # Create a new symbolic link to the latest release directory
