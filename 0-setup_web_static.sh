@@ -1,8 +1,12 @@
 #!/usr/bin/env bash
 # A script that deploys to a web server
 
+sudo mkdir -p /data/
+sudo mkdir -p /data/web_static/
+sudo mkdir -p /data/web_static/releases/
 sudo mkdir -p /data/web_static/shared/
 sudo mkdir -p /data/web_static/releases/test/
+sudo touch /data/web_static/releases/test/index.html
 echo "This is a test" | sudo tee /data/web_static/releases/test/index.html
 # Remove existing symbolic link (if it exists)
 sudo rm -f /data/web_static/current
