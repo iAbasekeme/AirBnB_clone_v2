@@ -20,6 +20,6 @@ sudo rm -f /data/web_static/current
 sudo ln -s /data/web_static/releases/test/ /data/web_static/current
 # Give ownership to the ubuntu user and group recursively
 sudo chown -hR ubuntu:ubuntu /data/
-sudo sed -i '/listen 80 default_server/a location /hbnb_static { alias /data/web_static/current/;}' /etc/nginx/sites-enabled/default
+sudo sed -i '/add_header X-Served-By $hostname;/a location /hbnb_static { alias /data/web_static/current/;}' /etc/nginx/sites-enabled/default
 # sudo sed -i '8i\\tlocation /hbnb_static/ {\n\t\talias /data/web_static/current/;\n\t}\n' 
 sudo service nginx restart
