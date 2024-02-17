@@ -34,7 +34,7 @@ def display_kwargs(text='is cool'):
     """A method that displays text
     """
     text = text.replace('_', ' ')
-    return f'Python' + text
+    return f'Python ' + text
 
 
 if __name__ == '__main__':
