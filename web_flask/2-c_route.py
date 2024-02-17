@@ -1,7 +1,8 @@
 #!/usr/bin/python3
-"""Docs
+"""A script that runs a flask application
 """
 from flask import Flask
+
 app = Flask(__name__)
 
 @app.route('/', strict_slashes=False)
