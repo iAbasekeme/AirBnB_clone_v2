@@ -22,20 +22,6 @@ class State(BaseModel, Base):
     else:
         name = ""
 
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-
-    # if models.storageType != "db":
-        """@property
-        def cities(self):
-            Getter method that gets a
-            list of cities with the same stateid
-
-            allCities = models.storage.all(City)
-            citiesList = [city for city in allCities.values()
-                        if city.state_id == self.id]
-            return citiesList"""
-    if getenv("HBNB_TYPE_STORAGE") != "db":
         @property
         def cities(self):
             """Get a list of all related City objects."""
