@@ -8,14 +8,6 @@ from models import storage
 app = Flask(__name__)
 
 
-@app.after_request
-def remove_session(response):
-    """Remove the current SQLAlchemy session after each request
-    """
-    storage.close()
-    return response
-
-
 @app.teardown_appcontext
 def teardown_storage(exception):
     """Teardown method to close storage after app context is destroyed
