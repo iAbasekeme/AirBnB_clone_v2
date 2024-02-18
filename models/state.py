@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-State module
+State module that controls the state model
 """
 from models.base_model import BaseModel, Base
 from sqlalchemy import Column, String, ForeignKey
