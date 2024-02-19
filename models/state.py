@@ -7,14 +7,14 @@ from sqlalchemy import Column, String, ForeignKey
 from sqlalchemy.orm import relationship
 from models.city import City
 from os import getenv
-import models
+from models import storageType
 
 
 class State(BaseModel, Base):
     """
     State class that inherit from BaseModel
     """
-    if models.storageType == "db":
+    if storageType == "db":
         __tablename__ = 'states'
         name = Column(String(128), nullable=False)
         cities = relationship('City', backref="state",
