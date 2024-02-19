@@ -8,6 +8,10 @@ if storageType == "db":
     from models.engine.db_storage import DBStorage
     storage = DBStorage()
 else:
-    from models.engine.file_storage import FileStorage
+    try:
+        from models.engine.file_storage import FileStorage
+        print('Active')
+    except ImportError:
+        print('Inactive')
     storage = FileStorage()
 storage.reload()
