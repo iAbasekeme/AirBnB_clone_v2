@@ -8,6 +8,11 @@ from sqlalchemy.orm import relationship
 from models.city import City
 from os import getenv
 from models import storageType
+try:
+    from models import storage
+    print("Module 'desired_module' is present.")
+except ImportError:
+    print("Module 'desired_module' is not present.")
 
 
 class State(BaseModel, Base):
